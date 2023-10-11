@@ -1,100 +1,123 @@
 public class Triangle {
-    private int angleA;
-    private int angleB;
-    private int angleC;
-    private int sideAB;
-    private int sideBC;
-    private int sideAC;
+    private int angleA = 60;
+    private int angleB = 60;
+    private int angleC = 60;
+    private int sideAB = 1;
+    private int sideBC = 1;
+    private int sideAC = 1;
 
-    public int getAngleA(){
+    public Triangle() {
+        /*this.sideAB = 1;
+        this.sideBC = 1;
+        this.sideAC = 1;
+        this.angleA = 60;
+        this.angleB = 60;
+        this.angleC = 60;*/
+    }
+
+    public Triangle(int sideAB, int sideBC, int sideAC) {
+        if (sideAB + sideBC > sideAC && sideAB + sideAC > sideBC && sideAC + sideBC > sideAB) {
+            this.sideAB = sideAB;
+            this.sideBC = sideBC;
+            this.sideAC = sideAC;
+        }
+        /*else {
+            this.sideAB = 1;
+            this.sideBC = 1;
+            this.sideAC = 1;*//*
+        }*/
+    }
+
+
+    public int getAngleA() {
         return angleA;
     }
-    public int getAngleB(){
+
+    public int getAngleB() {
         return angleB;
     }
-    public int getAngleC(){
+
+    public int getAngleC() {
         return angleC;
     }
-//    public void setAngleA(int value)throws Exception{
-//        if(value <= 178){
-//            if(180 - angleB+angleC==value){
-//                angleA=value;
-//            }
-//            else{
-//                throw new Exception("invalid value");
-//            }
-//        }
-//    }
 
-    public void setAngleA(int value) throws Exception{
-        if(value <= 180) {
+    public void setAngleA(int value) throws Exception {
+        if (value <= 180) {
             angleA = value;
-        }
-        else{
+        } else {
             throw new Exception("invalid value");
         }
     }
-    public void setAngleB(int value) throws Exception{
-        if(value <= 180) {
+
+    public void setAngleB(int value) throws Exception {
+        if (value <= 180) {
             angleB = value;
-        }
-        else{
+        } else {
             throw new Exception("invalid value");
         }
     }
-    public void setAngleC(int value) throws Exception{
-        if(value <= 180) {
+
+    public void setAngleC(int value) throws Exception {
+        if (value <= 180) {
             angleC = value;
-        }
-        else{
+        } else {
             throw new Exception("invalid value");
         }
     }
-    public int getSideAB(){
+
+    public int getSideAB() {
         return sideAB;
     }
-    public int getSideBC(){
+
+    public int getSideBC() {
         return sideBC;
     }
-    public int getSideAC(){
+
+    public int getSideAC() {
         return sideAC;
     }
-    public void setSideAB(int value){
-        sideAB=value;
-    }
-    public void setSideBC(int value){
-        sideBC=value;
-    }
-    public void setSideAC(int value){
-        sideAC=value;
+
+    public void setSideAB(int value) {
+        sideAB = value;
     }
 
-    public double calculateArea (){
-        double p = (sideAB+sideBC+sideAC)/2;
-        return Math.pow(p*(p-sideAB)*(p-sideBC)*(p-sideAC), 1/2);
-    }
-    public int calculatePerimetr(){
-        return sideAB+sideBC+sideAC;
+    public void setSideBC(int value) {
+        sideBC = value;
     }
 
-    public double getHa(){
-        return 2*calculateArea()/sideBC;
-    }
-    public double getHb(){
-        return 2*calculateArea()/sideAC;
-    }
-    public double getHc(){
-        return 2*calculateArea()/sideAB;
+    public void setSideAC(int value) {
+        sideAC = value;
     }
 
-    public String getType(){
-        String type="simple";
-        if(sideAB==sideBC && sideBC==sideAC){
-            type="equilateral ";
-        } else if (sideAB==sideBC || sideBC==sideAC || sideAB==sideAC) {
-            type="isosceles ";
-        } else if (angleA==90||angleB==90||angleC==90) {
-            type="right-angled";
+    public double calculateArea() {
+        double p = (sideAB + sideBC + sideAC) / 2;
+        return Math.pow(p * (p - sideAB) * (p - sideBC) * (p - sideAC), 1 / 2);
+    }
+
+    public int calculatePerimetr() {
+        return sideAB + sideBC + sideAC;
+    }
+
+    public double getHa() {
+        return 2 * calculateArea() / sideBC;
+    }
+
+    public double getHb() {
+        return 2 * calculateArea() / sideAC;
+    }
+
+    public double getHc() {
+        return 2 * calculateArea() / sideAB;
+    }
+
+    public String getType() {
+        String type = "simple";
+        if (sideAB == sideBC && sideBC == sideAC) {
+            type = "equilateral ";
+        } else if (sideAB == sideBC || sideBC == sideAC || sideAB == sideAC) {
+            type = "isosceles ";
+        } else if (angleA == 90 || angleB == 90 || angleC == 90) {
+            type = "right-angled";
         }
         return type;
     }
