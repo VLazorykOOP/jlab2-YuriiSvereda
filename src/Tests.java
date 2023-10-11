@@ -1,18 +1,28 @@
 import java.sql.SQLOutput;
 
 public class Tests {
-    static void task1(){
+    static void task1() {
         Triangle instant = new Triangle(15, 25, 20);
         System.out.println(instant.getType());
         System.out.println(instant.getHa());
-        try{
+        try {
             instant.setAngleA(90);
             instant.setAngleA(72);
             instant.setAngleA(54);
-        }catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex.getCause());
         }
         System.out.println(instant.calculateArea());
         System.out.println(instant.calculatePerimetr());
+    }
+    static void task2(){
+        ComplexNumber a = new ComplexNumber(3,99);
+        ComplexNumber b = new ComplexNumber(37,0);
+        System.out.println(a.calculateArgument());
+        System.out.println(b.calculateModule());
+        System.out.println(a.add(b));
+        System.out.println(b.subtract(a));
+        System.out.println(b.multiply(a));
+        System.out.println(a.divide(b));
     }
 }
