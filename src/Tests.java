@@ -15,14 +15,26 @@ public class Tests {
         System.out.println(instant.calculateArea());
         System.out.println(instant.calculatePerimetr());
     }
-    static void task2(){
-        ComplexNumber a = new ComplexNumber(3,99);
-        ComplexNumber b = new ComplexNumber(37,0);
+
+    static void task2() {
+        ComplexNumber a = new ComplexNumber(3, 99);
+        ComplexNumber b = new ComplexNumber(37, 0);
         System.out.println(a.calculateArgument());
         System.out.println(b.calculateModule());
         System.out.println(a.add(b));
         System.out.println(b.subtract(a));
         System.out.println(b.multiply(a));
         System.out.println(a.divide(b));
+    }
+
+    static void task3() {
+        VeryLongNumber a = new VeryLongNumber("123456");
+        VeryLongNumber b = new VeryLongNumber("98765");
+        System.out.println(a.add(b));
+        System.out.println(b.subtract(a));
+        System.out.println(a.divide(b));
+        System.out.println(b.multiply(a));
+        System.out.println(b.power(567));
+
     }
 }
