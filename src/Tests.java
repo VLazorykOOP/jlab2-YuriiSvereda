@@ -28,7 +28,7 @@ public class Tests {
 
     static void task3() {
         VeryLongNumber a = new VeryLongNumber("123456");
-        VeryLongNumber b = new VeryLongNumber("98765");
+        VeryLongNumber b = new VeryLongNumber("987");
         System.out.println(a.add(b));
         System.out.println(b.subtract(a));
         System.out.println(a.divide(b));

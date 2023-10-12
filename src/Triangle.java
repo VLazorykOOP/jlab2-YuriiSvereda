@@ -41,7 +41,7 @@ public class Triangle {
         return angleC;
     }
 
-    public void setAngleA(int value){
+    public void setAngleA(int value) {
         if (value <= 180) {
             angleA = value;
         } else {
@@ -112,11 +112,11 @@ public class Triangle {
 
     public String getType() {
         String type = "simple";
-        if ( angleA == 90 || angleB == 90 || angleC == 90) {
+        if (angleA == 90 || angleB == 90 || angleC == 90) {
             type = "right-angled";
         } else if (sideAB == sideBC || sideBC == sideAC || sideAB == sideAC) {
             type = "isosceles ";
-        } else if (sideAB == sideBC && sideBC == sideAC ) {
+        } else if (sideAB == sideBC && sideBC == sideAC) {
             type = "equilateral";
         }
         return type;
