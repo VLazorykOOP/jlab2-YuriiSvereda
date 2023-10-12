@@ -1,17 +1,16 @@
-import java.sql.SQLOutput;
 
 public class Tests {
     static void task1() {
         Triangle instant = new Triangle(15, 25, 20);
-        System.out.println(instant.getType());
-        System.out.println(instant.getHa());
         try {
             instant.setAngleA(90);
-            instant.setAngleA(72);
-            instant.setAngleA(54);
-        } catch (Exception ex) {
-            System.out.println(ex.getCause());
+            instant.setAngleB(72);
+            instant.setAngleC(54);
+        } catch (IllegalArgumentException ex) {
+            System.out.println("ERROR: " + ex.getMessage());
         }
+        System.out.println(instant.getType());
+        System.out.println(instant.getHa());
         System.out.println(instant.calculateArea());
         System.out.println(instant.calculatePerimetr());
     }

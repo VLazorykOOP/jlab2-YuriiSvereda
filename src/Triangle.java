@@ -41,27 +41,27 @@ public class Triangle {
         return angleC;
     }
 
-    public void setAngleA(int value) throws Exception {
+    public void setAngleA(int value){
         if (value <= 180) {
             angleA = value;
         } else {
-            throw new Exception("invalid value");
+            throw new IllegalArgumentException("invalid value");
         }
     }
 
-    public void setAngleB(int value) throws Exception {
+    public void setAngleB(int value) {
         if (value <= 180) {
             angleB = value;
         } else {
-            throw new Exception("invalid value");
+            throw new IllegalArgumentException("invalid value");
         }
     }
 
-    public void setAngleC(int value) throws Exception {
+    public void setAngleC(int value) {
         if (value <= 180) {
             angleC = value;
         } else {
-            throw new Exception("invalid value");
+            throw new IllegalArgumentException("invalid value");
         }
     }
 
@@ -90,8 +90,8 @@ public class Triangle {
     }
 
     public double calculateArea() {
-        double p = (sideAB + sideBC + sideAC) / 2;
-        return Math.pow(p * (p - sideAB) * (p - sideBC) * (p - sideAC), 1 / 2);
+        double p = (double) (sideAB + sideBC + sideAC) / 2;
+        return Math.sqrt(p * (p - sideAB) * (p - sideBC) * (p - sideAC));
     }
 
     public int calculatePerimetr() {
@@ -99,7 +99,7 @@ public class Triangle {
     }
 
     public double getHa() {
-        return 2 * calculateArea() / sideBC;
+        return 2 * (calculateArea() / sideBC);
     }
 
     public double getHb() {
@@ -112,12 +112,12 @@ public class Triangle {
 
     public String getType() {
         String type = "simple";
-        if (sideAB == sideBC && sideBC == sideAC) {
-            type = "equilateral ";
+        if ( angleA == 90 || angleB == 90 || angleC == 90) {
+            type = "right-angled";
         } else if (sideAB == sideBC || sideBC == sideAC || sideAB == sideAC) {
             type = "isosceles ";
-        } else if (angleA == 90 || angleB == 90 || angleC == 90) {
-            type = "right-angled";
+        } else if (sideAB == sideBC && sideBC == sideAC ) {
+            type = "equilateral";
         }
         return type;
     }
